@@ -1,18 +1,23 @@
-import express from 'express'
-import dotenv from 'dotenv'
-import cookieParser from 'cookie-parser'
+import express from "express";
+import dotenv from "dotenv";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import connectDB from "./config/database.js";
 
-dotenv.config()
+import userRoutes from "./routes/user.route.js";
 
-const app = express()
+dotenv.config();
 
-app.use(express.json())
-app.use(cors())
-app.use(cookieParser())
+const app = express();
+const PORT = process.env.PORT;
 
-const PORT = process.env.PORT
+app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
 
-app.listen(PORT,() => {
-    console.log(`Server started at ${PORT}`);
-    
-})
+app.use("/api/users", userRoutes);
+
+app.listen(PORT, () => {
+  connectDB();
+  console.log(`Server started at ${PORT}`);
+});
