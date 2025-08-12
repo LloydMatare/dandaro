@@ -18,6 +18,7 @@ export const SocketContextProvider = ({
   const { authUser } = useAuthContext();
 
   const APP_URL = "https://dandaro.onrender.com";
+  //@ts-ignore
   const API_URI = "http://localhost:5173";
 
   useEffect(() => {
