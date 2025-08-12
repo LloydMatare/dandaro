@@ -16,7 +16,7 @@ function Register() {
     gender: "",
   });
 
-  const { register } = useRegister();
+  const { loading,register } = useRegister();
 
   const handleGenderInputs = (gender: any) => {
     setInputs({ ...inputs, gender });
@@ -81,7 +81,9 @@ function Register() {
             oncheckboxChange={handleGenderInputs}
             selectedGender={inputs.gender}
           />
-          <Button className="w-full">Register</Button>
+          <Button className="w-full">
+             {loading ? <p>Loading....</p> : <p>Register</p>}
+          </Button>
         </form>
         <div className="flex items-center gap-2 mt-4">
           <p className="">Already have an account ?</p>
