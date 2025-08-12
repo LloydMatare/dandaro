@@ -16,7 +16,7 @@ function Register() {
     gender: "",
   });
 
-  const { loading, register } = useRegister();
+  const { register } = useRegister();
 
   const handleGenderInputs = (gender: any) => {
     setInputs({ ...inputs, gender });
