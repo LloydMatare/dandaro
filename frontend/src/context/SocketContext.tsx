@@ -17,10 +17,13 @@ export const SocketContextProvider = ({
   const [onlineUsers, setOnlineUsers] = useState<any[]>([]);
   const { authUser } = useAuthContext();
 
+  const APP_URL = "https://dandaro.onrender.com";
+  const API_URI = "http://localhost:5173";
+
   useEffect(() => {
     if (authUser) {
       console.log("Connecting socket for user:", authUser._id);
-      const newSocket = io("http://localhost:5000", {
+      const newSocket = io(`${APP_URL}`, {
         withCredentials: true,
         autoConnect: true,
         query: {

@@ -2,11 +2,14 @@ import { Server } from "socket.io";
 import http from "http";
 import express from "express";
 
+const APP_URL = "https://dandaro.onrender.com";
+const API_URI = "http://localhost:5173";
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // Remove array brackets
+    origin: APP_URL, // Remove array brackets
     credentials: true, // Add this for cookies
   },
 });
